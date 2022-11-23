@@ -1,4 +1,4 @@
-@model IEnumerable<ProjetoMVC.Models.Contato>;
+@model IEnumerable<ProjetoMVC.Models.Contato>
 
 @{
     ViewData["Title"] = "Listagem de contatos";
@@ -10,7 +10,7 @@
     <a asp-action="Criar">Novo Contato</a>
 </p>
 
-<table>
+<table class="table">
     <thread>
         <tr>
             <th>
@@ -22,9 +22,10 @@
                         <th>
                 @Html.DisplayNameFor(model => model.Telefone)
             </th>
-                        <th>
+            <th>
                 @Html.DisplayNameFor(model => model.Ativo)
             </th>
+            <th></th>
         </tr>
     </thread>
     <tbody>
@@ -33,6 +34,20 @@
             <tr>
                 <td>
                     @Html.DisplayFor(model => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Ativo)
+                </td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Detalhes" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Deletar" asp-route-id="@item.Id">Deletar</a>
                 </td>
             </tr>
         }
